@@ -16,12 +16,12 @@ const fetchResultsList = function (inputValue) {
 // Use the watchmode 'Title Details' API and append the 'Sources' option to get the needed information about a users selected show/movie
 // Use the ImDB ID in the watchmode results and the ImDB 'Ratings' API to get the ImDB rating
 async function getTitleDetailsAndSources(watchmodeId) {
-	// Make API cal to watchmode
+	// Make API cal to watchmode to get title details and sources
 	const url = `https://api.watchmode.com/v1/title/${watchmodeId}/details/?apiKey=${mattsWatchmodeAccount}&append_to_response=sources`;
 	const watchmodeResponse = await fetch(url);
 	const watcmodeTitleDetails = await watchmodeResponse.json();
 
-	// Get the ImDB ID from the watchmode response and assign it to a variable for use in the API call
+	// Get the ImDB ID from the watchmode response and assign it to a variable for use in the ImDB API call
 	var imdbId = watcmodeTitleDetails.imdb_id;
 
 	// Get the ImDB rating from ImDB
@@ -30,9 +30,10 @@ async function getTitleDetailsAndSources(watchmodeId) {
 	const imdbInfo = await imdbResponse.json();
 
 	// Combine the info from the two API calls into an object that can be returned to handleMakeSelection
+	// The rating source can be changed by choosing a new property from the imdbInfo object
 	package = {
 		details: watcmodeTitleDetails,
-		imdbRating: imdbInfo.imDb,
+		titleRating: imdbInfo.imDb,
 	};
 
 	return package;
@@ -71,30 +72,41 @@ const handleMakeSelection = function (e) {
 				)
 			);
 
-			const selectionTitle = document.createElement('h3');
-			selectionTitle.textContent = selectionInfo.title;
-			const selectionPoster = document.createElement('img');
-			selectionPoster.src = selectionInfo.poster;
-			const selectionRating = document.createElement('p');
-			selectionRating.textContent = selectionInfo.imdbRating;
-      const sourcesList = document.createElement('ul');
-
-      selectionInfo.streaming_services.forEach(function (entry) {
-        const listItem = document.createElement('li')
-        const sourceName = document.createElement('h3')
-        //  TODO conditional formatting to choose a fontawesome icon based on movie/show type
-        sourceName.textContent = 'icon' + ' ' + entry.sourceName + ' - ' + entry.sourceFormat + ' ' + entry.sourceType
-
-        listItem.appendChild(sourceName)
-        sourcesList.appendChild(listItem)
-      })
-
-			contentEl.appendChild(selectionTitle);
-			contentEl.appendChild(selectionPoster);
-			contentEl.appendChild(selectionRating);
-      contentEl.appendChild(sourcesList);
+			buildResultsContent(selectionInfo);
 			return selectionInfo;
 		});
+};
+
+const buildResultsContent = function (selectionInfo) {
+	const resultsContainer = document.createElement('div');
+
+	const selectionTitle = document.createElement('h3');
+	selectionTitle.textContent = selectionInfo.title;
+
+	const selectionPoster = document.createElement('img');
+	selectionPoster.src = selectionInfo.poster;
+
+	const selectionRating = document.createElement('p');
+	selectionRating.textContent = selectionInfo.imdbRating;
+
+	const sourcesList = document.createElement('ul');
+	selectionInfo.streaming_services.forEach(function (entry) {
+		const listItem = document.createElement('li');
+		const sourceName = document.createElement('h3');
+		const typeIcon = entry.sourceType === 'buy' ? '<i class="fa-solid fa-coins"></i>' : '<i class="fa-solid fa-repeat"></i>';
+		sourceName.innerHTML = `<p>icon </p><h3>${entry.sourceName} - ${entry.sourceFormat} </h3>${typeIcon}`;
+
+		listItem.appendChild(sourceName);
+		sourcesList.appendChild(listItem);
+	});
+
+	resultsContainer.appendChild(selectionTitle);
+	resultsContainer.appendChild(selectionPoster);
+	resultsContainer.appendChild(selectionRating);
+	resultsContainer.appendChild(sourcesList);
+
+	contentEl.appendChild(resultsContainer);
+  //  TODO save contentEl in local storage so it can be pulled onto results.html
 };
 
 searchResultsEl.addEventListener('click', handleMakeSelection);
