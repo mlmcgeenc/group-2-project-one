@@ -28,18 +28,18 @@ var fetchResultsList = function (userEntry) {
 // Take user entry data and build a list of results and dynamically display onto the DOM
 //  * ID's needed: div container for displaying the results, id for styling the displayed results
 function buildResultsList(json) {
-    var displayResults = $('<ul>').addClass('results-list-styling-placeholder').appendTo('#placeholder-results-div');
 
     for (var i = 0; i < json.results.length; i++) {
         var nameTitle = json.results[i].name;
         var releaseTitle = json.results[i].year
         var typeOfShow = json.results[i].type.replace('_', ' ');
-        var resultButton = $('<button>').addClass('results-list-styling-placeholder').data([i]).appendTo(displayResults)
+        var dataId = json.results[i].id;
 
-        $('<li>' + nameTitle + '</li>').addClass('results-styling-placeholder').appendTo(resultButton);
-        $('<li>' + releaseTitle + '</li>').addClass('results-styling-placeholder').appendTo(resultButton);
-        $('<li>' + typeOfShow + '</li>').addClass('results-styling-placeholder').appendTo(resultButton);
-        $('</br>').appendTo(resultButton);
+        var resultButton = $('<button>').addClass('results-list-styling-placeholder').attr('data', dataId).appendTo('#placeholder-results-div')
+        var displayResults = $('<ul>').addClass('results-list-styling-placeholder').appendTo(resultButton);
+        $('<li>' + nameTitle + '</li>').addClass('results-styling-placeholder').appendTo(displayResults);
+        $('<li>' + releaseTitle + '</li>').addClass('results-styling-placeholder').appendTo(displayResults);
+        $('<li>' + typeOfShow + '</li>').addClass('results-styling-placeholder').appendTo(displayResults);
     }
 };
 
