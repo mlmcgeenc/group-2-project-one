@@ -17,7 +17,7 @@ const fetchResultsList = function (inputValue) {
 	fetch(url)
 		.then((res) => res.json())
 		.then((json) => {
-			console.log(json);
+            buildResultsList(json);
 		});
 };
 
