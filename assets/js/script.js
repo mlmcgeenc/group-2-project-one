@@ -1,7 +1,9 @@
-const searchResultsEl = document.getElementById('search-results');
+const searchResultsEl = document.getElementById('placeholder-results-div');
 const contentEl = document.getElementById('content');
 const mattsWatchmodeAccount = 'CFUyQoNYEjDUNjdIGVUjd03eAKPBvYKRtCQAdiUu';
 const mattsImdbAccount = 'k_h9vj9ndq';
+var submitButtonEl = $('#submit-btn');
+var account = 'ruNaWJgAnvmlDC7luYrIu0wwVIofUPwcmWpHkPJZ'
 
 // Declare an object named selectionInfo that will contain the needed info collected through API calls
 let selectionInfo = {
@@ -9,6 +11,33 @@ let selectionInfo = {
 	poster: '',
 	imdb_rating: '',
 	streaming_services: [],
+};
+
+//  Push the user entry input to fetchResultsList
+//  * ID's needed: search form's input ID
+function handleNewSearch (event) {
+    event.preventDefault();
+    userEntry = $(this).siblings('#placeholder').val().trim();
+    if (userEntry) {
+        fetchResultsList(userEntry);
+        $('#placeholder').val('');
+    }
+//  ? should we add an else statement with a modal 'Please enter a search item'
+}
+
+// Take user entry data and build a list of results and dynamically display onto the DOM
+//  * ID's needed: div container for displaying the results, id for styling the displayed results
+function buildResultsList(json) {
+    for (var i = 0; i < json.results.length; i++) {
+        var nameTitle = json.results[i].name;
+        var releaseTitle = json.results[i].year
+        var typeOfShow = json.results[i].type.replace('_', ' ');
+        var dataId = json.results[i].id;
+
+        var resultButton = $(`<button class='results-list-styling-placeholder' data-id=${dataId}></button>`).appendTo('#placeholder-results-div');
+        var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
+        $(`<li class='results-list-styling-placeholder'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo(displayResults);
+    }
 };
 
 // Autocomplete API to get an array of titles matching the search
@@ -26,6 +55,11 @@ const handleMakeSelection = function (e) {
 	const watchmodeId = e.target.parentElement.getAttribute('data-id');
 	getTitleDetailsAndSources(watchmodeId)
 		.then((selection) => buildSelectionObject(selection));
+}
+
+// Title details API call provides ImDB number and sources array
+var findTitleSources = function (choosenTitleId) {
+	let url = `https://api.watchmode.com/v1/title/345534/details/?apiKey=YOUR_API_KEY`;
 };
 
 async function getTitleDetailsAndSources(watchmodeId) {
@@ -79,3 +113,5 @@ const buildSelectionObject = function (selection) {
 };
 
 searchResultsEl.addEventListener('click', handleMakeSelection);
+
+$(submitButtonEl).on('click', handleNewSearch);
