@@ -1,3 +1,33 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+--lavender-web: hsla(226, 27%, 90%, 1);
+--light-periwinkle: hsla(225, 24%, 87%, 1);
+--umber: hsla(22, 20%, 35%, 1);
+--chocolate-web: hsla(24, 60%, 48%, 1);
+--chocolate-web-2: hsla(24, 60%, 48%, 1);
+
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;   
+    margin: auto; 
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 500px;
+    background: var(--umber);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
 #recent-search-div {
     visibility: hidden;
 }
