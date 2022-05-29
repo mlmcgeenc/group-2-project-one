@@ -35,8 +35,8 @@ function buildResultsList(json) {
         var dataId = json.results[i].id;
 
         var resultButton = $(`<button class='results-list-styling-placeholder' data-id=${dataId}></button>`).appendTo('#placeholder-results-div');
-        var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
-        $(`<li class='results-list-styling-placeholder'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo(displayResults);
+        // var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
+        $(`<li class='results-list-styling-placeholder'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
     }
 };
 
@@ -56,11 +56,6 @@ const handleMakeSelection = function (e) {
 	getTitleDetailsAndSources(watchmodeId)
 		.then((selection) => buildSelectionObject(selection));
 }
-
-// Title details API call provides ImDB number and sources array
-var findTitleSources = function (choosenTitleId) {
-	let url = `https://api.watchmode.com/v1/title/345534/details/?apiKey=YOUR_API_KEY`;
-};
 
 async function getTitleDetailsAndSources(watchmodeId) {
 	// Make API cal to watchmode to get title details and sources
