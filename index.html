@@ -9,17 +9,24 @@
     <title>Movie Search</title>
 </head>
 <body>
-    <div class="title-bar">
-    <div class="title-bar-title text"><h1>Movie Search</h1></div>
-    </div>
-    <main class="small-1 medium-1 large-1 columns">
+    <!-- ! Placeholder form info, delete upon merge of actual index structure from Alicia
+    <form>
+        <input type="text" id="placeholder"></input>
+        <button type="submit" id="submit-btn">Submit</button>
+    </form>
+
+    <!-- ! Placeholder div container for results list, delete upon merge of index structure from Alicia -->
+    <!-- <div id="placeholder-results-div"></div> --> -->
+
+    <nav class="navbar">
+        <h1 class="nav-bar-h1">Movie Search</h1>
+    </nav>
+    <main class="main-wrapper">
         <div id="search-div" class="container">
-            <div class="small-12 medium-1 large-1 columns centered-elems">
             <form>
                 <input id="searchTxt" type="text" placeholder="Enter a movie or show title">
-                <button class="button large medium-expanded" id="search-results" type="button">Search</button>
+                <button id="search-results" type="button">Search</button>
             </form>
-            </div>
         </div>
     <div id="recent-search-div" class="container">
         <h3>Recent Searches</h3>
@@ -27,7 +34,12 @@
         <ul id="recents-list"></ul>
     </div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
 </html>
+
+
+
