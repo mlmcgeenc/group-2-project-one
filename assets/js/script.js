@@ -2,8 +2,15 @@ const searchResultsEl = document.getElementById('placeholder-results-div');
 const contentEl = document.getElementById('content');
 const mattsWatchmodeAccount = 'CFUyQoNYEjDUNjdIGVUjd03eAKPBvYKRtCQAdiUu';
 const mattsImdbAccount = 'k_h9vj9ndq';
+let account = '7JHhPYyxv2UtIUfImk4BYOdeKZvgQ6r1Wba971Cv';
+let userEntry = 'Goodfellas';
+let imdbApiKey = 'k_v4xuex9v';
 var submitButtonEl = $('#submit-btn');
-var account = 'ruNaWJgAnvmlDC7luYrIu0wwVIofUPwcmWpHkPJZ'
+let searchDiv = $('#search-div');
+let recentSearchDiv = document.querySelector('#recent-search-div');
+let recents_ul = $('#recents-list');
+let searchTextInput, currentRqst;
+let isGoodRequest = true;
 
 // Declare an object named selectionInfo that will contain the needed info collected through API calls
 let selectionInfo = {
@@ -13,32 +20,34 @@ let selectionInfo = {
 	streaming_services: [],
 };
 
+
+// ==================== SEARCH ====================
 //  Push the user entry input to fetchResultsList
 //  * ID's needed: search form's input ID
-function handleNewSearch (event) {
-    event.preventDefault();
-    userEntry = $(this).siblings('#placeholder').val().trim();
-    if (userEntry) {
-        fetchResultsList(userEntry);
-        $('#placeholder').val('');
-    }
-//  ? should we add an else statement with a modal 'Please enter a search item'
+function handleNewSearch(event) {
+	event.preventDefault();
+	userEntry = $(this).siblings('#placeholder').val().trim();
+	if (userEntry) {
+		fetchResultsList(userEntry);
+		$('#placeholder').val('');
+	}
+	//  ? should we add an else statement with a modal 'Please enter a search item'
 }
 
 // Take user entry data and build a list of results and dynamically display onto the DOM
 //  * ID's needed: div container for displaying the results, id for styling the displayed results
 function buildResultsList(json) {
-    for (var i = 0; i < json.results.length; i++) {
-        var nameTitle = json.results[i].name;
-        var releaseTitle = json.results[i].year
-        var typeOfShow = json.results[i].type.replace('_', ' ');
-        var dataId = json.results[i].id;
+	for (var i = 0; i < json.results.length; i++) {
+		var nameTitle = json.results[i].name;
+		var releaseTitle = json.results[i].year;
+		var typeOfShow = json.results[i].type.replace('_', ' ');
+		var dataId = json.results[i].id;
 
-        var resultButton = $(`<button class='results-list-styling-placeholder' data-id=${dataId}></button>`).appendTo('#placeholder-results-div');
-        // var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
-        $(`<li class='results-list-styling-placeholder'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
-    }
-};
+		var resultButton = $(`<button class='results-list-styling-placeholder' data-id=${dataId}></button>`).appendTo('#placeholder-results-div');
+		// var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
+		$(`<li class='results-list-styling-placeholder'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
+	}
+}
 
 // Autocomplete API to get an array of titles matching the search
 const fetchResultsList = function (inputValue) {
@@ -46,16 +55,16 @@ const fetchResultsList = function (inputValue) {
 	fetch(url)
 		.then((res) => res.json())
 		.then((json) => {
-            buildResultsList(json);
+			buildResultsList(json);
 		});
 };
 
+// ==================== USER SELECTS A RESULT FROM LIST RETURNED FROM SEARCH ====================
 const handleMakeSelection = function (e) {
 	// Get the watchmode ID from the search result the user has clicked on and use it to search watchmode for details about that show/movie
 	const watchmodeId = e.target.parentElement.getAttribute('data-id');
-	getTitleDetailsAndSources(watchmodeId)
-		.then((selection) => buildSelectionObject(selection));
-}
+	getTitleDetailsAndSources(watchmodeId).then((selection) => buildSelectionObject(selection));
+};
 
 async function getTitleDetailsAndSources(watchmodeId) {
 	// Make API cal to watchmode to get title details and sources
@@ -104,9 +113,49 @@ const buildSelectionObject = function (selection) {
 
 	// Save the selectionInfo object to local storage so it can be retrieved and displayed on the results.html page
 	localStorage.setItem('selectionInfo', JSON.stringify(selectionInfo));
-  window.location.href = './results.html';
+	window.location.href = './results.html';
+};
+
+// ==================== STORE SELECTED RESULT AND DISPLAY IN RECENTLY VIEWED DIV ====================
+// Autocomplete API to get an array of titles matching the search
+let upDateStorage = function (item) {
+	if (!storedSearchObj.includes(item)) {
+		storedSearchObj.push(item);
+
+		if (storedSearchObj.length > 3) storedSearchObj.shift();
+
+		localStorage.setItem('storedSearches', JSON.stringify(storedSearchObj));
+		manage_element_visi([recentSearchDiv], false);
+
+		recents_ul.prepend(`<li>${item}</li>`);
+		let liCount = $('#recents-list li').length;
+		if (liCount > 3) recents_ul.children().last().remove();
+	}
+};
+
+/* incorporate to Matt's eventhandler */
+$('#search-results').click(function () {
+	searchTextInput = document.querySelector('#searchTxt');
+	currentRqst = searchTextInput.value;
+	if (isGoodRequest) upDateStorage(currentRqst);
+	searchTextInput.value = '';
+	/* get Matt to return an isGoodRequest var
+	 so we confirm b/4 adding to storage.
+	 Hardcoded for now. */
+});
+
+/* element is set to hidden via CSS */
+let manage_element_visi = function (element_list, doHide) {
+	for (let i = 0; i < element_list.length; i++) {
+		elem = element_list[i];
+
+		if (doHide) elem.hidden = true;
+		else {
+			elem.hidden = false;
+			elem.style.visibility = 'visible';
+		}
+	}
 };
 
 searchResultsEl.addEventListener('click', handleMakeSelection);
-
 $(submitButtonEl).on('click', handleNewSearch);

@@ -6,21 +6,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="https://kit.fontawesome.com/c20b00daf3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    <title>Movie Search</title>
 </head>
 <body>
-    <!-- ! Placeholder form info, delete upon merge of actual index structure from Alicia -->
+    <!-- ! Placeholder form info, delete upon merge of actual index structure from Alicia
     <form>
         <input type="text" id="placeholder"></input>
         <button type="submit" id="submit-btn">Submit</button>
     </form>
 
     <!-- ! Placeholder div container for results list, delete upon merge of index structure from Alicia -->
-    <ul id="placeholder-results-div"></ul>
+    <!-- <div id="placeholder-results-div"></div> --> -->
 
+    <nav class="navbar">
+        <h1 class="nav-bar-h1">Movie Search</h1>
+    </nav>
+    <main class="main-wrapper">
+        <div id="search-div" class="container">
+            <form>
+                <input id="searchTxt" type="text" placeholder="Enter a movie or show title">
+                <button id="search-results" type="button">Search</button>
+            </form>
+        </div>
+    <div id="recent-search-div" class="container">
+        <h3>Recent Searches</h3>
+        <hr />
+        <ul id="recents-list"></ul>
+    </div>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
 </html>
+
+
+
