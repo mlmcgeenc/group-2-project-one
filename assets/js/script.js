@@ -1,8 +1,10 @@
+//  ! Placeholder variables
+//  * ID's & classes needed: submit button
 var submitButtonEl = $('#submit-btn');
 var account = 'ruNaWJgAnvmlDC7luYrIu0wwVIofUPwcmWpHkPJZ'
 
-//  *2
-//  ID's needed: search form's input ID
+//  Push the user entry input to fetchResultsList
+//  * ID's needed: search form's input ID
 function handleNewSearch (event) {
     event.preventDefault();
     userEntry = $(this).siblings('#placeholder').val().trim();
@@ -11,18 +13,23 @@ function handleNewSearch (event) {
         fetchResultsList(userEntry);
         $('#placeholder').val('');
     }
+//  ? should we add an else statement with a modal 'Please enter a search item'
 }
 
-//  * 3
 // Autocomplete API to get an array of titles matching the search
 var fetchResultsList = function (userEntry) {
 	let url = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${account}&search_value=${userEntry}`;
 	fetch(url)
 		.then((res) => res.json())
 		.then((json) => {
-			console.log(json);
+            buildResultsList(json);
 		});
 };
+
+// Take user entry data and build a list of results and dynamically display onto the DOM
+function buildResultsList(json) {
+    console.log(json);
+}
 
 // Title details API call provides ImDB number and sources array
 var findTitleSources = function (choosenTitleId) {
