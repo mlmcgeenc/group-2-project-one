@@ -7,10 +7,8 @@
 :root {
 --lavender-web: hsla(226, 27%, 90%, 1);
 --light-periwinkle: hsla(225, 24%, 87%, 1);
---umber: hsla(22, 20%, 35%, 1);
---chocolate-web: hsla(24, 60%, 48%, 1);
---chocolate-web-2: hsla(24, 60%, 48%, 1);
-
+--umber: rgb(96, 75, 63);
+--chocolate-web: rgb(220, 100, 20);
 }
 
 html {
@@ -21,13 +19,47 @@ body {
     height: 100%;   
     margin: auto; 
     font-family: Helvetica, Arial, sans-serif;
-    max-width: 500px;
+    /* max-width: 500px; */
     background: var(--umber);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    text-align: center;
 }
 
+h1 {
+    font-size: 1.75em;
+    font-weight: bold;
+}
 
+main, div, form {
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+}
+.title-bar {
+    background: var(--umber);
+    height: 7%;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.title-bar-title {
+    color: var(--chocolate-web)
+}
+
+.button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--chocolate-web);
+  line-height: 1;
+  cursor: auto;
+  width: 60%;
+  min-width: ;
+}
+
+.centered-elems {
+    text-align: center;
+}
 #recent-search-div {
     visibility: hidden;
 }
