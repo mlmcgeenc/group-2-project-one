@@ -35,7 +35,7 @@ function buildResultsList(json) {
         var dataId = json.results[i].id;
 
         var resultButton = $(`<button class='results-list-styling-placeholder' data-id=${dataId}></button>`).appendTo('#placeholder-results-div');
-        var displayResults = $(`<ul class='results-list-styling-placeholder'</ul>`).appendTo(resultButton);
+        var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
         $(`<li class='results-list-styling-placeholder'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo(displayResults);
     }
 };
