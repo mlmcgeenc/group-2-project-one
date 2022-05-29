@@ -8,7 +8,6 @@ var account = 'ruNaWJgAnvmlDC7luYrIu0wwVIofUPwcmWpHkPJZ'
 function handleNewSearch (event) {
     event.preventDefault();
     userEntry = $(this).siblings('#placeholder').val().trim();
-    console.log(userEntry)
     if (userEntry) {
         fetchResultsList(userEntry);
         $('#placeholder').val('');
@@ -29,31 +28,21 @@ var fetchResultsList = function (userEntry) {
 // Take user entry data and build a list of results and dynamically display onto the DOM
 //  * ID's needed: div container for displaying the results, id for styling the displayed results
 function buildResultsList(json) {
-    var displayResults = $('<ul>').addClass('results-list').appendTo('#placeholder-results-div');
+    var displayResults = $('<ul>').addClass('results-list-styling-placeholder').appendTo('#placeholder-results-div');
 
     for (var i = 0; i < json.results.length; i++) {
-    var nameTitle = json.results[i].name;
-    var releaseTitle = json.results[i].year
-    var typeOfShow = json.results[i].type
+        var nameTitle = json.results[i].name;
+        var releaseTitle = json.results[i].year
+        var typeOfShow = json.results[i].type.replace('_', ' ');
+        var resultButton = $('<button>').addClass('results-list-styling-placeholder').data([i]).appendTo(displayResults)
 
-
-    $('<li>' + nameTitle + '</li>').addClass('results-styling-placeholder').appendTo(displayResults);
-    $('<li>' + releaseTitle + '</li>').addClass('results-styling-placeholder').appendTo(displayResults);
-    $('<li>' + typeOfShow + '</li>').addClass('results-styling-placeholder').appendTo(displayResults);
-    $('</br>').appendTo(displayResults)
+        $('<li>' + nameTitle + '</li>').addClass('results-styling-placeholder').appendTo(resultButton);
+        $('<li>' + releaseTitle + '</li>').addClass('results-styling-placeholder').appendTo(resultButton);
+        $('<li>' + typeOfShow + '</li>').addClass('results-styling-placeholder').appendTo(resultButton);
+        $('</br>').appendTo(resultButton);
     }
 };
-// results: Array(49)
-// 0:
-// id: 3173903
-// image_url: "https://cdn.watchmode.com/posters/03173903_poster_w185.jpg"
-// name: "Breaking Bad"
-// relevance: 247.33
-// result_type: "title"
-// tmdb_id: 1396
-// tmdb_type: "tv"
-// type: "tv_series"
-// year: 2008
+
 
 // Title details API call provides ImDB number and sources array
 var findTitleSources = function (choosenTitleId) {
