@@ -1,0 +1,138 @@
+:root {
+    --brown: #4f4f4f;
+    --white: #FFFFFF;
+    --blue: #305BB9;
+    --lavender-web: #9AA6C0;
+    --grey-like: #E0E3ED;
+    --grey-like2: #D9D9D9;
+    --light-periwinkle: #DFE3EE;
+    --closeToWhite: #F5F5F5;
+    --orangelike: #D4661B;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* height: 100%;    */
+    margin: auto; 
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 500px;
+    background: var(--brown);
+    background-attachment: fixed;
+    text-align: center;
+}
+
+body {
+    /* height: 100%;    */
+    margin: auto; 
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 500px;
+    background: var(--brown);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.title-bar {
+    background: var(--brown);
+    height: 7%;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.title-bar-title {
+    color: var(--orangelike)
+}
+
+h1 {
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+div, form {
+    min-width: 100%;
+}
+
+main {
+    /* height: 100%; */
+    min-width: 100%;
+}
+
+.button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--orangelike);
+  line-height: 1;
+  cursor: auto;
+  width: 60%;
+  margin: 0;
+}
+
+/* #search-div {
+    position: absolute;
+} */
+
+#results-list {
+    list-style-type: none;
+}
+
+#resents-list li {
+    font-size: .75em;
+}
+
+/* #results-div {
+    min-height: 1em;
+} */
+
+#recent-search-div h3 {
+    font-size: .75em;
+    margin: 0;
+    /* height: 20px; */
+}
+
+#recent-search-div hr {
+    font-size: .75em;
+    margin: 0;
+    border-color: var(--orangelike);
+    width: 95vw;
+}
+
+.results-btn {
+  border-radius: 10px;
+  background-color: transparent;
+  line-height: 1;
+  cursor: auto;
+  width: 95%;
+  text-align: left;
+  color: var(--closeToWhite);
+  border-color: var(--closeToWhite);
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 10px;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.centered-elems {
+    text-align: center;
+}
+
+.orange-txt {
+    color: var(--orangelike);
+    line-height: 20pt;
+}
+
+#recent-search-div {
+    visibility: hidden;
+    text-align: left;
+    background-color: var(--grey-like);
+    position: absolute;
+    font-size: 1em;
+    top: 100vh;
+    color: var(--blue);
+    width: 100%;
+
+} 
