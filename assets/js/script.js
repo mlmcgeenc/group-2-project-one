@@ -54,9 +54,9 @@ function buildResultsList(json) {
 		var typeOfShow = json.results[i].type.replace('_', ' ');
 		var dataId = json.results[i].id;
 
-		var resultButton = $(`<button class='results-list-styling-placeholder' data-id=${dataId}></button>`).appendTo('#results-list');
+		// var resultButton = $(`<button class='results-list-styling-placeholder' ></button>`).appendTo('#results-list');
 		// var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
-		$(`<li class='results-list-styling-placeholder'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
+		$(`<li class='results-list-styling-placeholder data-id=${dataId}'> ${nameTitle} ${releaseTitle} ${typeOfShow} </li>`).appendTo('#results-list');
 	}
 }
 
