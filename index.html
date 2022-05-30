@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://kit.fontawesome.com/c20b00daf3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Movie Search</title>
 </head>
@@ -22,18 +23,19 @@
     </nav>
     <main class="main-wrapper">
         <div id="search-div" class="container">
-            <form>
+            <form id="search-form">
                 <input id="searchTxt" type="text" placeholder="Enter a movie or show title">
-                <button id="search-results" type="button">Search</button>
+                <button id="search-results" type="submit">Search</button>
             </form>
         </div>
+        <ul id="results-list"></ul>
     <div id="recent-search-div" class="container">
         <h3>Recent Searches</h3>
         <hr />
         <ul id="recents-list"></ul>
     </div>
     </main>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="./assets/js/script.js"></script>
