@@ -62,17 +62,20 @@ function buildResultsList(json) {
 		var releaseTitle = json.results[i].year;
 		var typeOfShow = json.results[i].type.replace('_', ' ');
 		var dataId = json.results[i].id;
-		var resultButton = $(`<button class="results-btn" id=${dataId}></button>`).appendTo('#results-list');
-		// var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
-		$(
-      `<li> ${nameTitle}<br /><span class="orange-txt">${releaseTitle} ${typeOfShow} </span></li>`).appendTo(resultButton);
-	}
+		// var resultButton = $(`<button class="results-btn" id=${dataId}></button>`).appendTo('#results-list');
+		// // var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
+		// $(
+    //   `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
+    // $(`<li class="results-btn" data-id="${dataId}"'>${nameTitle}<span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+    $(`<li class="results-btn" data-id="${dataId}"'> ${nameTitle} <br /><span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+  }
 }
 
 // ==================== USER SELECTS A RESULT FROM LIST RETURNED FROM SEARCH ====================
 const handleMakeSelection = function (e) {
+	console.log(e.target)
 	// Get the watchmode ID from the search result the user has clicked on and use it to search watchmode for details about that show/movie
-	const watchmodeId = e.target.parentElement.getAttribute('id');
+	const watchmodeId = ( e.target.getAttribute('data-id') ? e.target.getAttribute('data-id') : e.target.parentElement.getAttribute('data-id'));
 	getTitleDetailsAndSources(watchmodeId).then((selection) => buildSelectionObject(selection));
 };
 
