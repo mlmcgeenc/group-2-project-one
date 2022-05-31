@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://kit.fontawesome.com/c20b00daf3.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/c20b00daf3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Movie Search</title>
-</head>
-<body>
-    <!-- ! Placeholder form info, delete upon merge of actual index structure from Alicia
-    <form>
-        <input type="text" id="placeholder"></input>
-        <button type="submit" id="submit-btn">Submit</button>
-    </form>
-
-    <!-- ! Placeholder div container for results list, delete upon merge of index structure from Alicia -->
-    <!-- <div id="placeholder-results-div"></div> --> -->
-
-    <nav class="navbar">
-        <h1 class="nav-bar-h1">Movie Search</h1>
-    </nav>
-    <main class="main-wrapper">
-        <div id="search-div" class="container">
-            <form id="search-form">
-                <input id="searchTxt" type="text" placeholder="Enter a movie or show title">
-                <button id="search-results" type="submit">Search</button>
-            </form>
+  </head>
+  <body>
+    <div class="title-bar">
+        <div class="title-bar-title"><h1>Movie Search</h1></div>
+    </div>
+    <main class="small-1 medium-1 large-1 columns">
+      <div id="search-div" class="container">
+          <div id="search-div" class="small-12 medium-1 large-1 columns centered-elems">
+                <form id="search-form">
+                <input id="searchTxt" type="text" placeholder="Enter a movie or show title"/>
+                <button class="button" id="search-results-btn" type="submit">Search</button>
+                </form>
+          </div>
+          <div id="results-div" class="small-12 medium-1 large-1 columns centered-elems">
+            <ul id="results-list"></ul>
+          </div>
         </div>
-        <ul id="results-list"></ul>
-    <div id="recent-search-div" class="container">
+      <div id="recent-search-div" class="small-12 medium-1 large-1 columns centered-elems">
         <h3>Recent Searches</h3>
         <hr />
-        <ul id="recents-list"></ul>
-    </div>
+        <ul id="resents-list"></ul>
+      </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
     <script type="text/javascript" src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
-
-
-
