@@ -62,10 +62,12 @@ function buildResultsList(json) {
 		var releaseTitle = json.results[i].year;
 		var typeOfShow = json.results[i].type.replace('_', ' ');
 		var dataId = json.results[i].id;
-		var resultButton = $(`<button class="results-btn" id=${dataId}></button>`).appendTo('#results-list');
-		// var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
-		$(
-      `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
+		// var resultButton = $(`<button class="results-btn" id=${dataId}></button>`).appendTo('#results-list');
+		// // var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
+		// $(
+    //   `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
+    $(`<li data-id="${dataId}"'> ${nameTitle} <span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+
 	}
 }
 
