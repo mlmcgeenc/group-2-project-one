@@ -66,7 +66,7 @@ function buildResultsList(json) {
 		// // var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
 		// $(
     //   `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
-    $(`<li class='results-list-styling-placeholder data-id=${dataId}'> ${nameTitle} <span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+    $(`<li data-id="${dataId}"'> ${nameTitle} <span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
 
 	}
 }
