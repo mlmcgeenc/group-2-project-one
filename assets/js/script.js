@@ -73,8 +73,9 @@ function buildResultsList(json) {
 
 // ==================== USER SELECTS A RESULT FROM LIST RETURNED FROM SEARCH ====================
 const handleMakeSelection = function (e) {
+	console.log(e.target)
 	// Get the watchmode ID from the search result the user has clicked on and use it to search watchmode for details about that show/movie
-	const watchmodeId = e.target.parentElement.getAttribute('id');
+	const watchmodeId = ( e.target.getAttribute('data-id') ? e.target.getAttribute('data-id') : e.target.parentElement.getAttribute('data-id'));
 	getTitleDetailsAndSources(watchmodeId).then((selection) => buildSelectionObject(selection));
 };
 
