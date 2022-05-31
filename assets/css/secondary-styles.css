@@ -1,0 +1,115 @@
+
+  header {
+    padding: 20px 35px;
+    background-color: rgb(99, 98, 98);
+    display: flex;
+    justify-content: center;
+  
+  }
+
+  header h1 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 50px;
+    color: orange;
+    background-color: rgb(99, 98, 98);
+   }
+
+   .img-results {
+    margin: 10px auto;
+    padding-bottom: 10px;
+    width: 40%;
+   
+   }
+
+
+   .Search-results-list {
+    font-weight: bold;
+    color: orange;
+    font-size: 22px;
+    margin: 10px auto;
+    padding-bottom: 50px;
+    width: 20%;
+    border-bottom: 5px solid orange;
+   }
+
+
+
+   .results-rows {
+       
+  font-size: 22px;
+  margin: 50px auto;
+  padding-bottom: 50px;
+  width: 80%;
+  border-bottom: 5px solid orange;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  
+   }
+
+   /* .results-rows image {
+       width: 10px;
+       height: 10px;
+   } */
+
+
+
+  footer {
+    background: orange;
+    width: 100%;
+    padding: 10px 35px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  .btn{
+    border: 1px solid white;
+    background: none;
+  padding: 10px 20px;
+  font-size: 30px;
+  font-family: "montserrat";
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+
+  .btn1 {
+    color: white;
+  }
+
+  .btn1:hover {
+    color: grey;
+  }
+  
+ 
+
+  .btn1::before {
+    top: 0;
+    border-radius: 0 0 50% 50%;
+  }
+
+  .btn1:hover::before {
+    height: 180%;
+  }
+
+  @media screen and (max-width: 980px) {
+
+  }
+
+ 
+ 
+ 
+  @media screen and (max-width: 768px) {
+
+  }
+
+
+  @media screen and (max-width: 575px) {
+
+  }
