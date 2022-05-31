@@ -66,9 +66,9 @@ function buildResultsList(json) {
 		// // var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
 		// $(
     //   `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
-    $(`<li data-id="${dataId}"'> ${nameTitle} <span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
-
-	}
+    // $(`<li class="results-btn" data-id="${dataId}"'>${nameTitle}<span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+    $(`<li class="results-btn" data-id="${dataId}"'> ${nameTitle} <br /><span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+  }
 }
 
 // ==================== USER SELECTS A RESULT FROM LIST RETURNED FROM SEARCH ====================

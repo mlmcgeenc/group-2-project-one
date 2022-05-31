@@ -129,9 +129,9 @@ main {
     visibility: hidden;
     text-align: left;
     background-color: var(--grey-like);
-    position: absolute;
+    /* position: absolute; */
     font-size: 1em;
-    top: 100vh;
+    /* top: 100vh; */
     color: var(--blue);
     width: 100%;
 
