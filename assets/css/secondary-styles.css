@@ -161,16 +161,16 @@ a {
   color: var(--orangelike);
 }
 
+.source-icon {
+  max-width: 2rem;
+  margin: 0 1rem 0 0;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 980px) {
 
   .btn1:hover::before {
     height: 180%;
-  }
-
-  .source-icon {
-    max-width: 2rem;
-    margin: 0 1rem 0 0;
-    object-fit: contain;
   }
 }
 
