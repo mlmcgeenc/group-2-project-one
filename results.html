@@ -1,69 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://kit.fontawesome.com/c20b00daf3.js" crossorigin="anonymous"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="./assets/css/secondary-styles.css" />
-		<title>Results Page</title>
-	</head>
-	<body>
 
-		<header>
-			<h1>Movie Title</h1>
-			
-		  </header>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://kit.fontawesome.com/c20b00daf3.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./assets/css/secondary-styles.css" />
+	<title>Results Page</title>
+</head>
 
-		  <div class="img-results">
-		 
-			<img src="./assets/images/netflix-icon.png" alt="netflix" /></div>
-		
-		  <main class="hero">
-			<div class="container">
-			  <div class="Search-results-list">
-				<p class="subhead">Available On The Following Streaming Services</p>
-			  </div>
-		   </div>
-		   <div class="results-rows">
-			<div class="small-6 large-centered columns"><img src="./images/netflix-icon.png" alt="netflix" /></div>
-		    <div class="small-6 large-centered columns">Streaming1</div>
-			<div class="small-6 large-centered columns"><img src=".images/netflix-icon.png" alt="$" /></div>
-			</div>
-		  </div>
+<body>
 
-		   <div class="results-rows">
-			<div class="small-6 large-centered columns"><img src=".images/netflix-icon.png" alt="netflix" /></div>
-			<div class="small-6 large-centered columns">Streaming1</div>
-			<div class="small-6 large-centered columns"><img src=".images/netflix-icon.png" alt="$" /></div>
-			</div>
-		  </div>
-		
-		 
-		   
-		
-		  </main>
-		
-		  
-		
-		
-		  <footer>
-			<h2>
-			  <button class="btn btn1">Back to Search</button>
-			  
-		  </h2>
-		  
-		  </footer>
-		
+	<header>
+		<h1 id="title"></h1>
+	</header>
+
+	<main class="hero">
+		<div id="poster-container" class="img-results content-center"></div>
+		<div class="container">
+			<p class="subhead">Available On The Following Streaming Services</p>
+			<ul id="results-list" class="search-results-list"></ul>
+		</div>
+	</main>
+	<footer>
+		<h2>
+			<button class="btn btn1">Back to Search</button>
+		</h2>
+	</footer>
 
 
-    
-  <script type="text/javascript" src="./assets/js/results-page-script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="./assets/js/script.js"></script>
-  </body>
+
+
+	<script type="text/javascript" src="./assets/js/results-page-script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./assets/js/script.js"></script>
+</body>
+
 </html>
