@@ -94,7 +94,7 @@ footer {
 }
 
 footer {
-  background: orange;
+  background: var(--orangelike)
   width: 100%;
   padding: 10px 35px;
   display: flex;
@@ -151,7 +151,7 @@ footer {
   @media screen and (max-width: 768px) {
 
 .subhead {
-  color: orange;
+  color: var(--orangelike);
   text-align: center;
 }
 
