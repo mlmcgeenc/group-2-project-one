@@ -19,7 +19,7 @@ Create a web application that searches for movie and show titles and displays a 
 * IMDB
 
 
-![My Website](./assets/images/Weather%20Dashboard.gif)
+![My Website](LAST PART TO SUBMIT)
 
 
 [Link to the Page](https://github.com/mlmcgeenc/group-2-project-one/settings)
