@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-header {
-  padding: 20px 35px;
-  background-color: rgb(99, 98, 98);
-  display: flex;
-  justify-content: center;
-
-}
-
-header h1 {
-  font-weight: bold;
-  margin: 0;
-  font-size: 50px;
-  color: orange;
-  background-color: rgb(99, 98, 98);
-}
-
-#results-list li {
-  display: flex;
-  margin: 1rem auto;
-}
-
-.img-results {
-  margin: auto;
-  padding-bottom: 10px;
-  max-width: 40%;
-  display: flex;
-}
-
-
-.search-results-list {
-  list-style-type: none;
-  font-weight: bold;
-  color: orange;
-  font-size: 22px;
-  margin: 10px auto;
-  padding-bottom: 50px;
-  width: 80%;
-  border-bottom: 5px solid orange;
-}
-
-
-
-.results-rows {
-
-=======
 :root {
   --brown: #4f4f4f;
   --white: #FFFFFF;
@@ -87,7 +41,7 @@ footer {
     align-items: flex-end;
 }
 
-.img-results {
+/* .img-results {
     margin: 10px auto;
     padding-bottom: 10px;
     width: 40%;
@@ -100,10 +54,33 @@ footer {
     padding-bottom: 50px;
     width: 20%;
     border-bottom: 5px solid var(--orangelike);
+} */
+
+#results-list li {
+  display: flex;
+  margin: 1rem auto;
+}
+
+.img-results {
+  margin: auto;
+  padding-bottom: 10px;
+  max-width: 40%;
+  display: flex;
+}
+
+
+.search-results-list {
+  list-style-type: none;
+  font-weight: bold;
+  color: orange;
+  font-size: 22px;
+  margin: 10px auto;
+  padding-bottom: 50px;
+  width: 80%;
+  border-bottom: 5px solid orange;
 }
 
 .results-rows {
->>>>>>> main
   font-size: 22px;
   margin: 50px auto;
   padding-bottom: 50px;
@@ -113,7 +90,6 @@ footer {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-<<<<<<< HEAD
 
 }
 
@@ -128,16 +104,6 @@ footer {
 }
 
 .btn {
-=======
-}
-
-   /* .results-rows image {
-       width: 10px;
-       height: 10px;
-   } */
-
-.btn{
->>>>>>> main
   border: 1px solid white;
   background: none;
   padding: 10px 20px;
@@ -154,47 +120,35 @@ footer {
   color: white;
 }
 
-<<<<<<< HEAD
-.btn1:hover {
-  color: grey;
-}
-=======
   .btn1:hover {
     color: var(--grey-like);
   }
->>>>>>> main
 
 
 
-<<<<<<< HEAD
 .btn1::before {
   top: 0;
   border-radius: 0 0 50% 50%;
 }
-=======
   .subhead {
     text-align: center;
   }
 
   @media screen and (max-width: 980px) {
->>>>>>> main
 
 .btn1:hover::before {
   height: 180%;
 }
 
-<<<<<<< HEAD
 .source-icon {
   max-width: 2rem;
   margin: 0 1rem 0 0;
   object-fit: contain;
 }
-=======
 
 
 
   @media screen and (max-width: 768px) {
->>>>>>> main
 
 .subhead {
   color: orange;
