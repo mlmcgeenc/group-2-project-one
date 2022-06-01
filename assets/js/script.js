@@ -67,7 +67,12 @@ function buildResultsList(json) {
 		// $(
     //   `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
     // $(`<li class="results-btn" data-id="${dataId}"'>${nameTitle}<span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
-    $(`<li class="results-btn" data-id="${dataId}"'> ${nameTitle} <br /><span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+    $(
+      `<div class="button-container">
+	  <div class="results-btn" data-id="${dataId}"'> ${nameTitle} <br /><span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></div>
+	  <div class="playBtn"> <i class="fa-solid fa-play fa-2x"></i></div>
+	  </div>`
+    ).appendTo("#results-list");
   }
 }
 
