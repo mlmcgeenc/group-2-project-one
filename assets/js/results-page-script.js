@@ -1,4 +1,3 @@
-const contentEl = document.getElementById('content')
 const titleEl = document.getElementById('title')
 const posterEl = document.getElementById('poster-container')
 const resultsListEl = document.getElementById('results-list')
@@ -8,11 +7,12 @@ const buildResultsContent = function () {
 
 	const resultsContainer = document.createElement('div');
 
-	const selectionTitle = document.createElement('h3');
+	const selectionTitle = document.createElement('div');
 	selectionTitle.textContent = selectionInfo.title;
 
 	const selectionPoster = document.createElement('img');
-	selectionPoster.src = selectionInfo.poster;
+	selectionPoster.setAttribute('src', selectionInfo.poster);
+	console.log(selectionInfo.poster);
 
 	const selectionRating = document.createElement('p');
 	selectionRating.textContent = selectionInfo.rating;
@@ -75,7 +75,7 @@ const buildResultsContent = function () {
 		const listItem = document.createElement('li');
 		listItem.setAttribute('class', 'small-6 large-centered align-middle')
 		const sourceName = document.createElement('span');
-		const typeIcon = entry.sourceType === 'buy' ? '<i class="fa-solid fa-coins"></i>' : '<i class="fa-solid fa-repeat"></i>';
+		const typeIcon = entry.sourceType === 'buy' ? '<i class="fa-solid fa-coins orange"></i>' : '<i class="fa-solid fa-repeat orange"></i>';
 		sourceName.innerHTML = `${entry.sourceName} - ${entry.sourceFormat} ${typeIcon}`;
 
 		listItem.appendChild(sourceIcon);
@@ -86,9 +86,6 @@ const buildResultsContent = function () {
 	titleEl.appendChild(selectionTitle);
 	posterEl.appendChild(selectionPoster);
 	resultsContainer.appendChild(selectionRating);
-	// resultsListEl.appendChild(sourcesList);
-
-	contentEl.appendChild(resultsContainer);
 };
 
 buildResultsContent();
