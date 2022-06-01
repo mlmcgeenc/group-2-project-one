@@ -157,6 +157,10 @@ a {
   padding: 1rem 0;
 }
 
+#title {
+  text-align: center;
+}
+
 .orange {
   color: var(--orangelike);
 }

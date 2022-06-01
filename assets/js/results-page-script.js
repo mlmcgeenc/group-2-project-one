@@ -1,4 +1,3 @@
-const contentEl = document.getElementById('content')
 const titleEl = document.getElementById('title')
 const posterEl = document.getElementById('poster-container')
 const resultsListEl = document.getElementById('results-list')
@@ -12,7 +11,8 @@ const buildResultsContent = function () {
 	selectionTitle.textContent = selectionInfo.title;
 
 	const selectionPoster = document.createElement('img');
-	selectionPoster.src = selectionInfo.poster;
+	selectionPoster.setAttribute('src', selectionInfo.poster);
+	console.log(selectionInfo.poster);
 
 	const selectionRating = document.createElement('p');
 	selectionRating.textContent = selectionInfo.rating;
@@ -86,8 +86,6 @@ const buildResultsContent = function () {
 	titleEl.appendChild(selectionTitle);
 	posterEl.appendChild(selectionPoster);
 	resultsContainer.appendChild(selectionRating);
-
-	contentEl.appendChild(resultsContainer);
 };
 
 buildResultsContent();
