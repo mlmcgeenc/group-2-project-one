@@ -1,4 +1,7 @@
 const contentEl = document.getElementById('content')
+const titleEl = document.getElementById('title')
+const posterEl = document.getElementById('poster-container')
+const resultsListEl = document.getElementById('results-list')
 
 const buildResultsContent = function () {
 	const selectionInfo = JSON.parse(localStorage.getItem('selectionInfo'));
@@ -14,7 +17,6 @@ const buildResultsContent = function () {
 	const selectionRating = document.createElement('p');
 	selectionRating.textContent = selectionInfo.rating;
 
-	const sourcesList = document.createElement('ul');
 	selectionInfo.streaming_services.forEach(function (entry) {
 		const sourceIcon = document.createElement('img');
 		sourceIcon.setAttribute('class', 'source-icon')
@@ -71,19 +73,20 @@ const buildResultsContent = function () {
 				sourceIcon.setAttribute('src', './assets/images/wifi-solid.svg')
 		}
 		const listItem = document.createElement('li');
-		const sourceName = document.createElement('h3');
+		listItem.setAttribute('class', 'small-6 large-centered align-middle')
+		const sourceName = document.createElement('span');
 		const typeIcon = entry.sourceType === 'buy' ? '<i class="fa-solid fa-coins"></i>' : '<i class="fa-solid fa-repeat"></i>';
-		sourceName.innerHTML = `<div>${entry.sourceName} - ${entry.sourceFormat} </div>${typeIcon}`;
+		sourceName.innerHTML = `${entry.sourceName} - ${entry.sourceFormat} ${typeIcon}`;
 
 		listItem.appendChild(sourceIcon);
 		listItem.appendChild(sourceName);
-		sourcesList.appendChild(listItem);
+		resultsListEl.appendChild(listItem);
 	});
 
-	resultsContainer.appendChild(selectionTitle);
-	resultsContainer.appendChild(selectionPoster);
+	titleEl.appendChild(selectionTitle);
+	posterEl.appendChild(selectionPoster);
 	resultsContainer.appendChild(selectionRating);
-	resultsContainer.appendChild(sourcesList);
+	// resultsListEl.appendChild(sourcesList);
 
 	contentEl.appendChild(resultsContainer);
 };
