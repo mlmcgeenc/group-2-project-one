@@ -161,6 +161,11 @@ a {
   text-align: center;
 }
 
+#rating {
+  text-align: center;
+  width: 100%;
+}
+
 .orange {
   color: var(--orangelike);
 }
