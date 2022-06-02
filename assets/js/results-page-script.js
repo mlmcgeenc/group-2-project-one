@@ -1,5 +1,6 @@
 const titleEl = document.getElementById('title')
 const posterEl = document.getElementById('poster-container')
+const ratingEl = document.getElementById('rating')
 const resultsListEl = document.getElementById('results-list')
 
 const buildResultsContent = function () {
@@ -12,10 +13,9 @@ const buildResultsContent = function () {
 
 	const selectionPoster = document.createElement('img');
 	selectionPoster.setAttribute('src', selectionInfo.poster);
-	console.log(selectionInfo.poster);
 
 	const selectionRating = document.createElement('p');
-	selectionRating.textContent = selectionInfo.rating;
+	ratingEl.textContent = `ImDB rating: ${selectionInfo.rating}`;
 
 	selectionInfo.streaming_services.forEach(function (entry) {
 		const sourceIcon = document.createElement('img');
@@ -85,7 +85,7 @@ const buildResultsContent = function () {
 
 	titleEl.appendChild(selectionTitle);
 	posterEl.appendChild(selectionPoster);
-	resultsContainer.appendChild(selectionRating);
+	ratingEl.appendChild(selectionRating);
 };
 
 buildResultsContent();
