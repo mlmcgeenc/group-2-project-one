@@ -6,8 +6,6 @@ const resultsListEl = document.getElementById('results-list')
 const buildResultsContent = function () {
 	const selectionInfo = JSON.parse(localStorage.getItem('selectionInfo'));
 
-	const resultsContainer = document.createElement('div');
-
 	const selectionTitle = document.createElement('div');
 	selectionTitle.textContent = selectionInfo.title;
 
