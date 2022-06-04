@@ -162,8 +162,6 @@ a {
   hover::before {
     height: 180%;
   }
-
-  .btn1:
 }
 
 @media screen and (max-width: 980px) {}
