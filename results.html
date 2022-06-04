@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://kit.fontawesome.com/c20b00daf3.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="./assets/css/style.css" />
-		<title>Results Page</title>
-	</head>
-	<body>
-    <div id="content"></div>
-  <script type="text/javascript" src="./assets/js/results-page-script.js"></script>
-  </body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://kit.fontawesome.com/c20b00daf3.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./assets/css/secondary-styles.css" />
+	<title>Results Page</title>
+</head>
+
+<body>
+	<header>
+		<h1>EZ Stream</h1>
+	</header>
+
+	<main class="hero">
+		<h1 id="title"></h1>
+		<div id="poster-container" class="poster-container"></div>
+		
+		<div class="container">
+			<p id="rating"></p>
+			<p class="subhead">Available On The Following Streaming Services</p>
+			<ul id="results-list" class="search-results-list"></ul>
+		</div>
+	</main>
+		<a class="footer-button" href="./index.html"><i class="fa-solid fa-backward"></i><h2>Back to Search</h2></a>
+	<script type="text/javascript" src="./assets/js/results-page-script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./assets/js/script.js"></script>
+</body>
+
 </html>
