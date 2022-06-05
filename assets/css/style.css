@@ -3,11 +3,7 @@
   --brown: #4f4f4f;
   --closeToWhite: #F5F5F5;
   --grey-like: #E0E3ED;
-  --lavender-web: #9AA6C0;
-  --light-periwinkle: #DFE3EE;
   --orangelike: #D4661B;
-  --white: #FFFFFF;
-  --grey-like2: #D9D9D9;
 }
 
 * {
@@ -25,7 +21,6 @@ html {
   max-width: 500px;
   padding-top: 14px;
   text-align: center;
-  /*     */
 }
 
 body {
@@ -36,8 +31,6 @@ body {
   height: 100%;
   margin: auto;
   max-width: 500px;
-  /*     */
-  /*  */
 }
 
 h1 {
@@ -52,28 +45,27 @@ div, form {
 main {
   height: 100%;
   min-width: 100%;
-  /*  */
 }
 
 #results-list {
+}
+
+#recents-list li {
+  font-size: 1em;
+  text-align: center;
+  margin-top: 0.5em;
   list-style-type: none;
 }
 
-#resents-list li {
-  font-size: .75em;
-}
-
-#resents-list {
-  padding-left: 1em;
-}
 
 #recent-search-div h3 {
   border-bottom: #D4661B solid 1px;
-  font-size: .75em;
-  font-weight: bold;
+  font-size: 1em;
+  text-transform: uppercase;
   margin-bottom: 3px;
   margin: 0;
   padding-bottom: 3px;
+  text-align: center;
 }
 
 #recent-search-div hr {
@@ -90,13 +82,13 @@ main {
   text-align: left;
   visibility: hidden;
   width: 100%;
+  border-radius: 10px;
 }
 
 #searchTxt {
   background-color: var(--grey-like);
   border-radius: 10px;
 }
-
 
 .title-bar {
   background: var(--brown);
@@ -119,6 +111,16 @@ main {
   width: 60%;
 }
 
+.button:hover {
+    background-color: var(--grey-like);
+    color: var(--orangelike);
+    box-shadow: 3px 3px 3px 2px black;
+}
+
+.button:hover:after {
+    background-color: var(--orangelike);
+}
+
 .button-container {
   display: flex;
 }
@@ -137,6 +139,13 @@ main {
   padding: 10px;
   text-align: left;
   width: 50%;
+  line-height: 20pt;
+}
+
+.results-btn:hover {
+    background-color: var(--grey-like);
+    color: var(--brown);
+    box-shadow: 3px 3px 3px 2px black;
 }
 
 .playBtn {

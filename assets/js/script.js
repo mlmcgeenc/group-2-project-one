@@ -5,7 +5,7 @@ const mattsImdbAccount = 'k_h9vj9ndq';
 var submitButtonEl = document.getElementById('search-results-btn');
 let searchDiv = $('#search-div');
 let recentSearchDiv = document.querySelector('#recent-search-div');
-let recents_ul = $('#resents-list');
+let recents_ul = $('#recents-list');
 let searchTextInput, currentRqst;
 let isGoodRequest = true;
 var formEl = document.getElementById('search-form');
@@ -23,7 +23,7 @@ let storedSearchObj = storedSearches ? storedSearches : [];
 
 if (storedSearches) {
 	manage_element_visi([recentSearchDiv], false);
-	for (let i = 0; i < storedSearches.length; i++) recents_ul.append(`<li>${storedSearches[i]}</li>`);
+	for (let i = 0; i < storedSearches.length; i++) recents_ul.append(`<li class='stored-searches'>${storedSearches[i]}</li>`);
 }
 
 // ==================== SEARCH ====================
@@ -137,7 +137,7 @@ let upDateStorage = function (item) {
 
 		recents_ul.prepend(`<li>${item}</li>`);
 	}
-	let liCount = $('#resents-list li').length;
+	let liCount = $('#recents-list li').length;
 	if (liCount > 3) recents_ul.children().last().remove();
 };
 
