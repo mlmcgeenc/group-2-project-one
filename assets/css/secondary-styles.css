@@ -30,7 +30,7 @@ footer {
   align-items: center;
   background: var(--orangelike);
   border-radius: 25px 25px 0 0;
-  color: white;
+  color: var(--closeToWhite);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -44,12 +44,12 @@ footer h2 {
 }
 
 a {
-  color: white;
+  color: var(--closeToWhite);
   text-decoration: none;
 }
 
 #results-list li {
-  color: white;
+  color: var(--closeToWhite);
   display: flex;
   margin: 1rem auto;
 }
@@ -67,7 +67,7 @@ a {
   align-items: center;
   background: var(--orangelike);
   border-radius: 25px 25px 0 0;
-  color: white;
+  color: var(--closeToWhite);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -118,7 +118,7 @@ a {
 }
 
 .btn1 {
-  color: white;
+  color: var(--closeToWhite);
 }
 
 .btn1:hover {
@@ -166,9 +166,3 @@ a {
     height: 180%;
   }
 }
-
-@media screen and (max-width: 980px) {}
-
-@media screen and (max-width: 768px) {}
-
-@media screen and (max-width: 575px) {}
