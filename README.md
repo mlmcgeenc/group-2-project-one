@@ -22,4 +22,4 @@ Create a web application that searches for movie and show titles and displays a 
 ![Website](./assets/images/EZ%20Stream.gif)
 
 
-[Link to the Page](https://github.com/mlmcgeenc/group-2-project-one/settings)
+[Link to the Page](https://mlmcgeenc.github.io/group-2-project-one/)
