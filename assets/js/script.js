@@ -26,7 +26,7 @@ let storedSearchObj = storedSearches ? storedSearches : [];
 
 if (storedSearches) {
 	manage_element_visi([recentSearchDiv], false);
-	for(let i = 0; i < storedSearches.length; i++)
+	for (let i = 0; i < storedSearches.length; i++)
 		recents_ul.append(`<li>${storedSearches[i]}</li>`);
 }
 
@@ -65,17 +65,22 @@ function buildResultsList(json) {
 		// var resultButton = $(`<button class="results-btn" id=${dataId}></button>`).appendTo('#results-list');
 		// // var displayResults = $(`<ul class='results-list-styling-placeholder'></ul>`).appendTo(resultButton);
 		// $(
-    //   `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
-    // $(`<li class="results-btn" data-id="${dataId}"'>${nameTitle}<span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
-    $(`<li class="results-btn" data-id="${dataId}"'> ${nameTitle} <br /><span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
-  }
+		//   `<li> ${nameTitle}<br />${releaseTitle} ${typeOfShow} </li>`).appendTo(resultButton);
+		// $(`<li class="results-btn" data-id="${dataId}"'>${nameTitle}<span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></li>`).appendTo('#results-list');
+		$(
+			`<div class="button-container">
+	  <div class="results-btn" data-id="${dataId}"'> ${nameTitle} <br /><span class='orange-txt'>${releaseTitle} ${typeOfShow}<span></div>
+	  <div class="playBtn"> <i class="fa-solid fa-play fa-2x"></i></div>
+	  </div>`
+		).appendTo("#results-list");
+	}
 }
 
 // ==================== USER SELECTS A RESULT FROM LIST RETURNED FROM SEARCH ====================
 const handleMakeSelection = function (e) {
 	console.log(e.target)
 	// Get the watchmode ID from the search result the user has clicked on and use it to search watchmode for details about that show/movie
-	const watchmodeId = ( e.target.getAttribute('data-id') ? e.target.getAttribute('data-id') : e.target.parentElement.getAttribute('data-id'));
+	const watchmodeId = (e.target.getAttribute('data-id') ? e.target.getAttribute('data-id') : e.target.parentElement.getAttribute('data-id'));
 	getTitleDetailsAndSources(watchmodeId).then((selection) => buildSelectionObject(selection));
 };
 
@@ -92,6 +97,7 @@ async function getTitleDetailsAndSources(watchmodeId) {
 	const imdbUrl = `https://imdb-api.com/en/API/Ratings/${mattsImdbAccount}/${imdbId}`;
 	const imdbResponse = await fetch(imdbUrl);
 	const imdbInfo = await imdbResponse.json();
+	console.log(imdbInfo);
 
 	// Combine the info from the two API calls into an object that can be returned to handleMakeSelection
 	// The rating source can be changed by choosing a new property from the imdbInfo object. Options are imDb, theMovieDb, rottenTomatoes, filmAffinity
@@ -99,7 +105,7 @@ async function getTitleDetailsAndSources(watchmodeId) {
 		details: watcmodeTitleDetails,
 		titleRating: imdbInfo.imDb,
 	};
-
+	console.log(package)
 	return package;
 }
 
@@ -109,9 +115,10 @@ const buildSelectionObject = function (selection) {
 	selectionInfo = {
 		title: selection.details.title,
 		poster: selection.details.poster,
-		rating: selection.imdbRating,
+		rating: selection.titleRating,
 		streaming_services: [],
 	};
+	console.log(selectionInfo)
 
 	// Iterate over the array of streaming and purchase sources and create a new array with only the info needed for results.html
 	selection.details.sources.forEach((source) =>
@@ -131,25 +138,25 @@ const buildSelectionObject = function (selection) {
 };
 
 let upDateStorage = function (item) {
-	if(!storedSearchObj.includes(item)) {
-  		storedSearchObj.push(item);
+	if (!storedSearchObj.includes(item)) {
+		storedSearchObj.push(item);
 
-  		storedSearchObj.unshift(item);
+		storedSearchObj.unshift(item);
 		storedSearchObj.pop();
-		if(storedSearchObj.length > 3)
+		if (storedSearchObj.length > 3)
 			storedSearchObj.pop();
 
-  localStorage.setItem("storedSearches", JSON.stringify(storedSearchObj));
-  manage_element_visi([recentSearchDiv], false);
+		localStorage.setItem("storedSearches", JSON.stringify(storedSearchObj));
+		manage_element_visi([recentSearchDiv], false);
 
-  recents_ul.prepend(`<li>${item}</li>`);
+		recents_ul.prepend(`<li>${item}</li>`);
 	}
-  let liCount = $("#resents-list li").length;
-  if (liCount > 3) recents_ul.children().last().remove();
+	let liCount = $("#resents-list li").length;
+	if (liCount > 3) recents_ul.children().last().remove();
 };
 
 /* element is set to hidden via CSS */
- function manage_element_visi(element_list, doHide) {
+function manage_element_visi(element_list, doHide) {
 	for (let i = 0; i < element_list.length; i++) {
 		elem = element_list[i];
 
