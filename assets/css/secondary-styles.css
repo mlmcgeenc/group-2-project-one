@@ -10,6 +10,9 @@ body {
   color: var(--orangelike);
   font-family: 'Montserrat', sans-serif;
   margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -37,6 +40,7 @@ footer {
   margin: 0;
   padding: 0;
   width: 100%;
+  margin-top: auto;
 }
 
 footer h2 {
@@ -74,6 +78,7 @@ a {
   margin: 0;
   padding: 0;
   width: 100%;
+  margin-top: auto;
 }
 
 .img-results {
@@ -141,6 +146,7 @@ a {
   max-width: 75%;
   padding: 1rem 0;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .orange {
@@ -155,10 +161,6 @@ a {
 
 .hero {
   color: var(--closeToWhite);
-}
-
-.subhead {
-  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 980px) {
