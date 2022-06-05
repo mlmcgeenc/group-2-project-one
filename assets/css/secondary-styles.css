@@ -1,19 +1,15 @@
 :root {
-  --blue: #305BB9;
   --brown: #4f4f4f;
   --closeToWhite: #F5F5F5;
   --grey-like: #E0E3ED;
-  --lavender-web: #9AA6C0;
-  --light-periwinkle: #DFE3EE;
   --orangelike: #D4661B;
-  --white: #FFFFFF;
-  --grey-like2: #D9D9D9;
 }
 
 body {
   background: var(--brown);
   color: var(--orangelike);
   font-family: 'Montserrat', sans-serif;
+  margin: auto;
 }
 
 header {
@@ -25,7 +21,6 @@ header {
 }
 
 header h1 {
-  background-color: rgb(99, 98, 98);
   font-size: 50px;
   font-weight: bold;
   margin: 0;
@@ -156,6 +151,14 @@ a {
   margin: 0 1rem 0 0;
   max-width: 2rem;
   object-fit: contain;
+}
+
+.hero {
+  color: var(--closeToWhite);
+}
+
+.subhead {
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 980px) {

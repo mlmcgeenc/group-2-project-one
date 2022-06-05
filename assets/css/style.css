@@ -47,16 +47,17 @@ main {
   min-width: 100%;
 }
 
-#results-list {
-}
-
-#recents-list li {
-  font-size: 1em;
-  text-align: center;
-  margin-top: 0.5em;
-  list-style-type: none;
-}
-
+#recent-search-div {
+    background-color: var(--grey-like);
+    color: var(--blue);
+    font-size: 1em;
+    padding-top: 10px;
+    text-align: left;
+    visibility: hidden;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4);
+  }
 
 #recent-search-div h3 {
   border-bottom: #D4661B solid 1px;
@@ -74,21 +75,17 @@ main {
   margin: 0;
 }
 
-#recent-search-div {
-  background-color: var(--grey-like);
-  color: var(--blue);
-  font-size: 1em;
-  padding-top: 10px;
-  text-align: left;
-  visibility: hidden;
-  width: 100%;
-  border-radius: 10px;
-}
-
 #searchTxt {
   background-color: var(--grey-like);
   border-radius: 10px;
 }
+
+#recents-list li {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 0.5em;
+    list-style-type: none;
+  }  
 
 .title-bar {
   background: var(--brown);
@@ -114,11 +111,12 @@ main {
 .button:hover {
     background-color: var(--grey-like);
     color: var(--orangelike);
-    box-shadow: 3px 3px 3px 2px black;
+    box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4);
+    transition: 0.5s;
 }
 
-.button:hover:after {
-    background-color: var(--orangelike);
+.button:active {
+    background-color: black;
 }
 
 .button-container {
@@ -145,7 +143,8 @@ main {
 .results-btn:hover {
     background-color: var(--grey-like);
     color: var(--brown);
-    box-shadow: 3px 3px 3px 2px black;
+    box-shadow: 3px 3px 3px 2px rgba(0,0,0,0.4);
+    transition: 0.3s;
 }
 
 .playBtn {
