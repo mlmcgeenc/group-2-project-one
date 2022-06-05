@@ -19,7 +19,7 @@ Create a web application that searches for movie and show titles and displays a 
 * IMDB
 
 
-![My Website](LAST PART TO SUBMIT)
+[Website](./assets/images/EZ%20Stream.gif)
 
 
 [Link to the Page](https://github.com/mlmcgeenc/group-2-project-one/settings)
