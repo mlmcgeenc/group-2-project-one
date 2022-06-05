@@ -5,7 +5,7 @@ const mattsImdbAccount = 'k_h9vj9ndq';
 var submitButtonEl = document.getElementById('search-results-btn');
 let searchDiv = $('#search-div');
 let recentSearchDiv = document.querySelector('#recent-search-div');
-let recents_ul = $('#resents-list');
+let recents_ul = $('#recents-list');
 let searchTextInput, currentRqst;
 let isGoodRequest = true;
 var formEl = document.getElementById('search-form');
@@ -23,12 +23,11 @@ let storedSearchObj = storedSearches ? storedSearches : [];
 
 if (storedSearches) {
 	manage_element_visi([recentSearchDiv], false);
-	for (let i = 0; i < storedSearches.length; i++) recents_ul.append(`<li>${storedSearches[i]}</li>`);
+	for (let i = 0; i < storedSearches.length; i++) recents_ul.append(`<li class='stored-searches'>${storedSearches[i]}</li>`);
 }
 
 // ==================== SEARCH ====================
 //  Push the user entry input to fetchResultsList
-//  * ID's needed: search form's input ID
 function handleNewSearch(event) {
 	event.preventDefault();
 	searchResultsEl.innerHTML = '';
@@ -37,7 +36,6 @@ function handleNewSearch(event) {
 		fetchResultsList(userEntry);
 		$('#searchTxt').val('');
 	}
-	//  ? should we add an else statement with a modal 'Please enter a search item'
 }
 
 // Autocomplete API to get an array of titles matching the search
@@ -51,7 +49,6 @@ const fetchResultsList = function (userEntry) {
 };
 
 // Take user entry data and build a list of results and dynamically display onto the DOM
-//  * ID's needed: div container for displaying the results, id for styling the displayed results
 function buildResultsList(json) {
 	for (var i = 0; i < json.results.length; i++) {
 		var nameTitle = json.results[i].name;
@@ -137,7 +134,7 @@ let upDateStorage = function (item) {
 
 		recents_ul.prepend(`<li>${item}</li>`);
 	}
-	let liCount = $('#resents-list li').length;
+	let liCount = $('#recents-list li').length;
 	if (liCount > 3) recents_ul.children().last().remove();
 };
 
